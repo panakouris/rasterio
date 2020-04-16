@@ -223,6 +223,8 @@ def merge(datasets, bounds=None, res=None, nodata=None, precision=10, indexes=No
         dst_window = windows.from_bounds(
             int_w, int_s, int_e, int_n, output_transform, precision=precision)
 
+        dst_window = dst_window.round_shape()
+
         # 4. Read data in source window into temp
         trows, tcols = (
             int(round(dst_window.height)), int(round(dst_window.width)))
